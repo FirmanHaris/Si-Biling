@@ -23,4 +23,8 @@ class Kelas extends Model
     {
         return $this->hasOne(Semester::class, 'id_semester', 'id_semester');
     }
+    public function detail_kelas()
+    {
+        return $this->hasOne(Detail_kelas::class, 'id_detail', 'id_detail');
+    }
 }

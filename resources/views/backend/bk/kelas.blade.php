@@ -46,6 +46,11 @@
                                                         class="btn btn-link btn-primary btn-lg" data-original-title="Edit ">
                                                         <i class="fa fa-edit"></i>
                                                     </button>
+                                                    <a href="{{ route('detailkelas') }}"
+                                                        class="btn btn-link btn-primary btn-lg" data-original-title="Edit ">
+                                                        <i class="far fa-eye"></i>
+                                                        <a>
+
                                             </td>
                                         </tr>
                                     @endforeach

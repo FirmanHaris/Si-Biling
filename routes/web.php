@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DetailKelasController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LandingController;
@@ -71,6 +72,7 @@ Route::controller(KelasController::class)->group(function () {
     Route::post('/insert_kelas', 'insertKelas')->name('insertKelas');
     Route::put('/kelas/update/{id}', 'updateKelas')->name('update_kelas');
 });
-Route::controller(PelanggaranController::class)->group(function () {
-    Route::get('/pelanggaran', 'index')->name('pelanggaran');
+
+Route::controller(DetailKelasController::class)->group(function () {
+    Route::get('detile/kelas', 'index')->name('detailkelas');
 });
