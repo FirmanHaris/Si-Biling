@@ -68,5 +68,5 @@ Route::controller(SemesterController::class)->group(function () {
 Route::controller(KelasController::class)->group(function () {
     Route::get('/kelas', 'index')->name('datakelas');
     Route::post('/insert_kelas', 'insertKelas')->name('insertKelas');
-    Route::put('/update/kelas/{id}', 'updateKelas')->name('update_kelas');
+    Route::put('/kelas/update/{id}', 'updateKelas')->name('update_kelas');
 });
