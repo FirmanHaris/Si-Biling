@@ -37,6 +37,7 @@ class KelasController extends Controller
     }
     public function updateKelas(Request $request, $id)
     {
+        // dd($request->all());
         $this->validate($request, [
             'id_guru' => 'required',
             'nama_kelas' => 'required',
@@ -44,7 +45,7 @@ class KelasController extends Controller
             'ruangan' => 'required'
         ]);
         try {
-            $data = Kelas::find($id);
+            $data = Kelas::findOrFail($id);
             $data->id_guru = $request->id_guru;
             $data->nama_kelas = $request->nama_kelas;
             $data->id_semester = $request->id_semester;
@@ -52,6 +53,7 @@ class KelasController extends Controller
             $data->save();
             return redirect('/kelas')->with(['msg' => 'Data Berhasil Diubah', 'type' => 'success']);
         } catch (\Exception $e) {
+            return $e;
         }
     }
 }

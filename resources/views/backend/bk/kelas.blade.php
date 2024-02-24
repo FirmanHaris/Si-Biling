@@ -162,7 +162,8 @@
                                                             </label>
                                                             <select class="custom-select" id="inputGroupSelect02"
                                                                 name="id_guru">
-                                                                <option selected> {{ $kl->guru->nama }}
+                                                                <option selected value="{{ $kl->id_guru }}">
+                                                                    {{ $kl->guru->nama }}
                                                                 </option>
                                                                 @foreach ($guru as $gr)
                                                                     <option value="{{ $gr->id_guru }}">
@@ -188,7 +189,7 @@
                                                             </label>
                                                             <select class="custom-select" id="inputGroupSelect02"
                                                                 name="id_semester">
-                                                                <option selected>
+                                                                <option selected value="{{ $kl->id_semester }}">
                                                                     {{ $kl->semester->nama_semester }} </option>
                                                                 @foreach ($semester as $smtr)
                                                                     <option value="{{ $smtr->id_semester }}">
