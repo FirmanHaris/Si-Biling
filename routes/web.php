@@ -5,6 +5,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PelajaranController;
+use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
@@ -69,4 +70,7 @@ Route::controller(KelasController::class)->group(function () {
     Route::get('/kelas', 'index')->name('datakelas');
     Route::post('/insert_kelas', 'insertKelas')->name('insertKelas');
     Route::put('/kelas/update/{id}', 'updateKelas')->name('update_kelas');
+});
+Route::controller(PelanggaranController::class)->group(function () {
+    Route::get('/pelanggaran', 'index')->name('pelanggaran');
 });

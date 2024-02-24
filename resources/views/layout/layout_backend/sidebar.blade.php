@@ -21,25 +21,25 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="">
+                    <a href="">
                         <i class="fas fa-layer-group"></i>
                         <p>Kegiatan Siswa</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="">
+                    <a href="">
                         <i class="fas fa-graduation-cap"></i>
                         <p>Prestasi</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a data-toggle="collapse" href="">
+                    <a href="">
                         <i class="fa fa-calendar"></i>
                         <p>Absensi</p>
                     </a>
                 </li>
-                <li class="nav-item  ">
-                    <a data-toggle="collapse" href="">
+                <li class="nav-item  { request()->is('pelanggaran') ? 'active' : '' }}">
+                    <a href="{{ route('pelanggaran') }}">
                         <i class="fas fa-th-list"></i>
                         <p>Kasus / Pelanggaran</p>
                     </a>
@@ -57,13 +57,13 @@
                     <h4 class="text-section">Bank Nilai Siswa</h4>
                 </li>
                 <li class="nav-item  ">
-                    <a data-toggle="collapse" href="">
+                    <a href="">
                         <i class="fas fa-th-list"></i>
                         <p>Nilai Siswa</p>
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a data-toggle="collapse" href="">
+                    <a href="">
                         <i class="fas fa-th-list"></i>
                         <p>E-Ijazah</p>
                     </a>
