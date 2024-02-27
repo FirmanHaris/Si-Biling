@@ -57,12 +57,14 @@ Route::controller(SiswaController::class)->group(function () {
     Route::post('/datasiswa/insert_siswa', 'tambahSiswa')->name('insert_siswa');
     Route::put('/datasiswa/update/{id}', 'editsiswa')->name('update_siswa');
     Route::delete('/datasiswa/delete/{id}', 'deletesiswa')->name('delete_siswa');
+    Route::post('/prosesImport', 'importSiswa')->name('import_siswa');
 });
 Route::controller(GuruController::class)->group(function () {
     Route::get('/dataguru', 'index')->name('dataguru');
     Route::post('/insert_guru', 'tambah_guru')->name('insert_guru');
     Route::put('/dataguru/update/{id}', 'edit_guru');
     Route::delete('/dataguru/delete/{id}', 'delete')->name('delete_guru');
+    Route::post('/importguru', 'importGuru')->name('importGuru');
 });
 Route::controller(SemesterController::class)->group(function () {
     Route::get('/semester', 'index')->name('semester');

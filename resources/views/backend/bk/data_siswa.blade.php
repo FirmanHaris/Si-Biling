@@ -23,6 +23,9 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalAdd">
                                 Add
                             </button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Import">
+                                Import
+                            </button>
                         </div>
                         <div class="table-responsive">
                             <table class="table">
@@ -88,6 +91,40 @@
                                     @endforeach
                                 </tbody>
                             </table>
+
+                            <!-- Modal Import -->
+                            <div class="modal fade" id="Import" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title d-flex justify-content-center" id="exampleModalLabel">
+                                                Updload File</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="{{ route('import_siswa') }}" method="post"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <label for="">Upload File</label>
+                                                <div class="custom-file">
+                                                    <input type="file" name="file" class="custom-file-input"
+                                                        id="customFile">
+                                                    <label class="custom-file-label" for="customFile">pilih file</label>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Upload</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal Import -->
                             <!-- Modal Add -->
                             <div class="modal fade bd-example-modal-lg" id="ModalAdd" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -149,7 +186,7 @@
                                                             @enderror
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="">Foto</label>
+                                                            {{-- <label for="">Foto</label>
                                                             <input type="file"
                                                                 class="form-control-file @error('foto')
                                                             is-invalid
@@ -157,8 +194,17 @@
                                                                 name="foto" accept="image/*">
                                                             @error('foto')
                                                                 <span class="invalid-feedback">{{ $message }}</span>
-                                                            @enderror
+                                                            @enderror --}}
+                                                            <label for="">Foto</label>
+                                                            <div class="custom-file">
+
+                                                                <input type="file" name="foto" accept="image/*"
+                                                                    class="custom-file-input" id="customFile">
+                                                                <label class="custom-file-label" for="customFile">pilih
+                                                                    file</label>
+                                                            </div>
                                                         </div>
+
                                                     </div>
                                                     <div class="col ">
                                                         <div class="form-group">
@@ -434,4 +480,13 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
 @endsection
