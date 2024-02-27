@@ -64,6 +64,7 @@ Route::controller(GuruController::class)->group(function () {
     Route::post('/insert_guru', 'tambah_guru')->name('insert_guru');
     Route::put('/dataguru/update/{id}', 'edit_guru');
     Route::delete('/dataguru/delete/{id}', 'delete')->name('delete_guru');
+    Route::post('/importguru', 'importGuru')->name('importGuru');
 });
 Route::controller(SemesterController::class)->group(function () {
     Route::get('/semester', 'index')->name('semester');

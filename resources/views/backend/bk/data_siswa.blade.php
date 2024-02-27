@@ -98,7 +98,8 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title d-flex justify-content-center" id="exampleModalLabel">
+                                                Updload File</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -109,10 +110,9 @@
                                             <div class="modal-body">
                                                 <label for="">Upload File</label>
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="file"
-                                                        id="file" aria-describedby="inputGroupFileAddon01">
-                                                    <label class="custom-file-label" for="inputGroupFile01">Choose
-                                                        file</label>
+                                                    <input type="file" name="file" class="custom-file-input"
+                                                        id="customFile">
+                                                    <label class="custom-file-label" for="customFile">pilih file</label>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -186,7 +186,7 @@
                                                             @enderror
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="">Foto</label>
+                                                            {{-- <label for="">Foto</label>
                                                             <input type="file"
                                                                 class="form-control-file @error('foto')
                                                             is-invalid
@@ -194,8 +194,17 @@
                                                                 name="foto" accept="image/*">
                                                             @error('foto')
                                                                 <span class="invalid-feedback">{{ $message }}</span>
-                                                            @enderror
+                                                            @enderror --}}
+                                                            <label for="">Foto</label>
+                                                            <div class="custom-file">
+
+                                                                <input type="file" name="foto" accept="image/*"
+                                                                    class="custom-file-input" id="customFile">
+                                                                <label class="custom-file-label" for="customFile">pilih
+                                                                    file</label>
+                                                            </div>
                                                         </div>
+
                                                     </div>
                                                     <div class="col ">
                                                         <div class="form-group">
@@ -474,4 +483,13 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
 @endsection

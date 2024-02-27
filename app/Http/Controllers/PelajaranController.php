@@ -36,6 +36,7 @@ class PelajaranController extends Controller
 
             return redirect('mapel')->with(['msg' => 'Data Berhasil Ditambah', 'type' => 'success']);
         } catch (\Exception $e) {
+            return $e;
         }
         // $data = Pelajaran::create($request->all());
         // return redirect('mapel')->with(['msg' => 'Data Berhasil Ditambah', 'type' => 'success']);

@@ -776,7 +776,7 @@
         });
     </script>
     <script>
-        let kurikulum = ["k13", "merdeka"];
+        let kurikulum = ["K-13", "Merdeka"];
         let k13 = ["Nasional", "Kewilayahan", "Peminatan"];
         let merdeka = ["Pelajaran Umum", "Pelajaran Kejuruan"];
         let krm = document.getElementById("skurikulum");
@@ -789,10 +789,10 @@
         });
         krm.onchange = function() {
             mtn.innerHTML = "<option></option>";
-            if (this.value == "k13") {
+            if (this.value == "K-13") {
                 addToMtn(k13);
             }
-            if (this.value == "merdeka") {
+            if (this.value == "Merdeka") {
                 addToMtn(merdeka);
             }
         }
@@ -806,6 +806,7 @@
             });
         }
     </script>
+    @yield('script')
 </body>
 
 </html>

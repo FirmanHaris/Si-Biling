@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\GuruImport;
 use App\Models\Guru;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Ramsey\Uuid\Uuid;
 
 class GuruController extends Controller
@@ -95,5 +97,14 @@ class GuruController extends Controller
         }
         $data->delete();
         return redirect('dataguru')->with(['msg' => 'Data Berhasi Di hapus !', 'type' => 'success']);
+    }
+    public function importGuru(Request $request)
+    {
+        try {
+            Excel::import(new GuruImport, $request->file('file'));
+            return redirect('dataguru')->with(['msg' => 'Data Berhasi Di Import !', 'type' => 'success']);
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
 }
