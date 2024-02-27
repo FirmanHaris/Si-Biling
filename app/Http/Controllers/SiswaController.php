@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\SiswaImport;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Ramsey\Uuid\Uuid;
 
 class SiswaController extends Controller
@@ -99,5 +101,10 @@ class SiswaController extends Controller
         }
         $data->delete();
         return redirect('datasiswa')->with(['msg' => 'Data Berhasi Di hapus !', 'type' => 'success']);
+    }
+    public function importSiswa(Request $request)
+    {
+        Excel::import(new SiswaImport, $request->file('file'));
+        return redirect('datasiswa')->with(['msg' => 'Data Berhasi Di Import !', 'type' => 'success']);
     }
 }

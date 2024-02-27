@@ -23,6 +23,9 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalAdd">
                                 Add
                             </button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Import">
+                                Import
+                            </button>
                         </div>
                         <div class="table-responsive">
                             <table class="table">
@@ -88,6 +91,40 @@
                                     @endforeach
                                 </tbody>
                             </table>
+
+                            <!-- Modal Import -->
+                            <div class="modal fade" id="Import" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="{{ route('import_siswa') }}" method="post"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <label for="">Upload File</label>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" name="file"
+                                                        id="file" aria-describedby="inputGroupFileAddon01">
+                                                    <label class="custom-file-label" for="inputGroupFile01">Choose
+                                                        file</label>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Upload</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal Import -->
                             <!-- Modal Add -->
                             <div class="modal fade bd-example-modal-lg" id="ModalAdd" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
