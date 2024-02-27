@@ -21,8 +21,8 @@ class PelajaranController extends Controller
         $this->validate($request, [
             'nama_mapel' => 'required',
             'id_guru' => 'required',
-            'katagori' => 'required',
             'kurikulum' => 'required',
+            'muatan' => 'required'
 
         ]);
 
@@ -30,8 +30,8 @@ class PelajaranController extends Controller
             $data = new Pelajaran();
             $data->nama_mapel = $request->nama_mapel;
             $data->id_guru = $request->id_guru;
-            $data->katagori = $request->katagori;
             $data->kurikulum = $request->kurikulum;
+            $data->muatan = $request->muatan;
             $data->save();
 
             return redirect('mapel')->with(['msg' => 'Data Berhasil Ditambah', 'type' => 'success']);

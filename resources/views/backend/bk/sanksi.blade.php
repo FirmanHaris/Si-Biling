@@ -5,7 +5,7 @@
             <div class="page-inner py-5">
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
-                        <h2 class="text-white pb-2 fw-bold ">Pelanggaran Siswa</h2>
+                        <h2 class="text-white pb-2 fw-bold ">Sanksi</h2>
                     </div>
                 </div>
             </div>
@@ -19,15 +19,12 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalAdd">
                                 Add
                             </button>
-                            <a href="{{ route('tataTertib') }}" class="btn btn-secondary ">Tata Tertib</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Siswa</th>
-                                        <th>Pelanggaran</th>
                                         <th>Sanksi</th>
                                         <th>#Action</th>
                                     </tr>

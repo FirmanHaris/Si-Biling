@@ -7,8 +7,10 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PelajaranController;
 use App\Http\Controllers\PelanggaranController;
+use App\Http\Controllers\SanksiController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\TataTertibController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,5 +76,14 @@ Route::controller(KelasController::class)->group(function () {
 });
 
 Route::controller(DetailKelasController::class)->group(function () {
-    Route::get('detile/kelas', 'index')->name('detailkelas');
+    Route::get('/detile_kelas', 'index')->name('detailkelas');
+});
+Route::controller(PelanggaranController::class)->group(function () {
+    Route::get('/pelanggaran', 'index')->name('pelanggaran');
+});
+Route::controller(TataTertibController::class)->group(function () {
+    Route::get('/tataTertib', 'index')->name('tataTertib');
+});
+Route::controller(SanksiController::class)->group(function () {
+    Route::get('/sanksi', 'index')->name('sanksi');
 });
