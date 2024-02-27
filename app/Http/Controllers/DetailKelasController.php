@@ -32,16 +32,29 @@ class DetailKelasController extends Controller
     public function insertdetail(Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required'
+            'nama' => 'required|array'
         ]);
-        // dd($request);
+
         try {
 
-            $data = new Detail_kelas();
-            $data->siswa->nama = $request->siswa->nama;
+            $request->validate([
+                'nama' => 'required|array',
+            ]);
 
+            // Dapatkan data siswa yang dipilih dari formulir
+            $siswaTerpilih = $request->input('nama');
+            // Lakukan multiple insert
+            $siswaData = [];
 
-            $data->save();
+            foreach ($siswaTerpilih as $siswa) {
+                $siswaData[] = [
+                    'nama' => $siswa,
+                    // tambahkan kolom lain sesuai kebutuhan
+                ];
+            }
+
+            Siswa::insert($siswaData);
+
             return redirect('detailkelas')->with(['msg' => 'Data Berhasil Ditambah', 'type' => 'success']);
         } catch (\Exception $e) {
             return redirect('dataguru')->with(['msg' => $e . 'Data Gagal Ditambah ', 'type' => 'error']);

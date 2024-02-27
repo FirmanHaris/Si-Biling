@@ -7,9 +7,6 @@
                     <div>
                         <h2 class="text-white pb-2 fw-bold ">Detail Kelas {{ $detail[0]->kelas->nama_kelas }}
                             <h5>WALI KELAS {{ $detail[0]->kelas->guru->nama }}</h5>
-                            {{-- @foreach ($siswa as $dk)
-                                {{ $dk->detail_kelas->id_kelas }}
-                            @endforeach --}}
                         </h2>
                     </div>
                 </div>
@@ -70,7 +67,7 @@
 
         {{-- modal Add Siswa --}}
 
-        <div class="modal fade bd-example-modal-lg" id="ModalAdd" tabindex="-1" role="dialog"
+        <div class="modal fade bd-example-modal-lg modal" id="ModalAdd" role="dialog"
             aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -83,36 +80,34 @@
                     </div>
                     <form action="{{ route('insertdetail') }}" method="POST">
                         @csrf
-                        <div class="modal-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">NO</th>
-                                        <th scope="col">Nama</th>
-                                        <th scope="col">Nis</th>
-                                        <th scope="col">Aksi</th>
-                                    </tr>
-                                </thead>
+                        <div class="form-group">
+                            <label for="nama_mapel">
+                                <h5>Tahun ajaran</h5>
+                            </label>
+                            <select style="width: 30em" class="custom-select" id="jurusan" data-width="100%"
+                                name="jurusan">
+                                <option selected> --pilih jurusan--
+                                </option>
+                                {{-- <input type="checkbox" id="select-all">seelec all --}}
                                 @foreach ($siswa as $sis)
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">{{ $loop->iteration }}</th>
-                                            <td>{{ $sis->nama }}</td>
-                                            <td>{{ $sis->nis }}</td>
-                                            <td>
-                                                <input type="checkbox" name="$sis->nama[]"
-                                                    class="@error('nama')
-is-invalid
-@enderror">
-
-                                                @error('nama')
-                                                    <span class="invalid-feedback">{{ $message }}</span>
-                                                @enderror
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <option type="checkbox" value="{{ $sis->id_siswa }}">
+                                        {{ $sis->jurusan }}
+                                    </option>
                                 @endforeach
-                            </table>
+                            </select>
+                            <label class="mt-3" for="nama_mapel">
+                                <h5>Nama Siswa</h5>
+                            </label>
+                            <select class="custom-select" id="namasiswa" data-width="100%" name="jurusan">
+                                <option selected> --pilih siswa--
+                                </option>
+                                @foreach ($siswa as $sis)
+                                    <option value="{{ $sis->id_siswa }}">
+                                        nama-> {{ $sis->nama }} jurusan-> {{ $sis->jurusan }}
+                                    </option>
+                                @endforeach
+                            </select>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -125,3 +120,8 @@ is-invalid
         {{-- end modal siswa --}}
     </div>
 @endsection
+<script>
+    $(.ModalAdd).ready(function() {
+        $('#jurusan').select2();
+    });
+</script>

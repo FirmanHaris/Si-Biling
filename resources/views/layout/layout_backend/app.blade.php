@@ -8,7 +8,7 @@
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="{{ asset('asset_backend') }}/img/logo/ah.png" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('asset_backend/css/fonts.css') }}">
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Fonts and icons -->
     <script src="{{ asset('asset_backend') }}/js/plugin/webfont/webfont.min.js"></script>
@@ -549,6 +549,19 @@
 
     <!--   Core JS Files   -->
     <script src="{{ asset('asset_backend') }}/js/core/jquery.3.2.1.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#jurusan').select2();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#namasiswa').select2();
+        });
+    </script>
+
     <script src="{{ asset('asset_backend') }}/js/core/popper.min.js"></script>
     <script src="{{ asset('asset_backend') }}/js/core/bootstrap.min.js"></script>
 

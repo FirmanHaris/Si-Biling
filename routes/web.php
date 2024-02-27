@@ -76,13 +76,10 @@ Route::controller(KelasController::class)->group(function () {
 });
 
 Route::controller(DetailKelasController::class)->group(function () {
-<<<<<<< HEAD
     Route::get('detail/kelas/{id_kelas}', 'index')->name('detailkelas');
     // menampilkan siswa berdasarkan id kelasnya
     // Route::get('/kelassiswa/{kelas}', 'kelaskatagori')->name('kelaskatagori');
     Route::post('insert/detail', 'insertdetail')->name('insertdetail');
-=======
-    Route::get('/detile_kelas', 'index')->name('detailkelas');
 });
 Route::controller(PelanggaranController::class)->group(function () {
     Route::get('/pelanggaran', 'index')->name('pelanggaran');
@@ -92,5 +89,4 @@ Route::controller(TataTertibController::class)->group(function () {
 });
 Route::controller(SanksiController::class)->group(function () {
     Route::get('/sanksi', 'index')->name('sanksi');
->>>>>>> 66ab414a83b9d559c8f1548f8ec0d2a8ff1c9850
 });
