@@ -72,5 +72,8 @@ Route::controller(KelasController::class)->group(function () {
     Route::put('/kelas/update/{id}', 'updateKelas')->name('update_kelas');
 });
 Route::controller(DetailKelasController::class)->group(function () {
-    Route::get('detile/kelas', 'index')->name('detailkelas');
+    Route::get('detail/kelas/{id_kelas}', 'index')->name('detailkelas');
+    // menampilkan siswa berdasarkan id kelasnya
+    // Route::get('/kelassiswa/{kelas}', 'kelaskatagori')->name('kelaskatagori');
+    Route::post('insert/detail', 'insertdetail')->name('insertdetail');
 });

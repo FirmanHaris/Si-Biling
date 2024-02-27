@@ -46,7 +46,7 @@
                                                         class="btn btn-link btn-primary btn-lg" data-original-title="Edit ">
                                                         <i class="fa fa-edit"></i>
                                                     </button>
-                                                    <a href="{{ route('detailkelas') }}"
+                                                    <a href="{{ route('detailkelas', $kls->id_kelas) }}"
                                                         class="btn btn-link btn-primary btn-lg" data-original-title="Edit ">
                                                         <i class="far fa-eye"></i>
                                                         <a>

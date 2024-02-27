@@ -15,10 +15,10 @@ class Detail_kelas extends Model
 
     public function siswa()
     {
-        return $this->belongsTo(Siswa::class, 'id_siswa', 'id_siswa');
+        return $this->belongsTo(Siswa::class, 'id_siswa');
     }
     public function kelas()
     {
-        return $this->hasMany(Kelas::class, 'id_kelas', 'id_kelas');
+        return $this->belongsTo(Kelas::class, 'id_kelas', 'id_kelas');
     }
 }

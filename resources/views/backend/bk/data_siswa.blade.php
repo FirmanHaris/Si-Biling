@@ -428,9 +428,6 @@
                                 </div>
                                 <!-- End Modal -->
                             @endforeach
-
-
-
                         </div>
                     </div>
                 </div>
