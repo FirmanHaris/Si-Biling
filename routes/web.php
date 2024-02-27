@@ -6,8 +6,11 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PelajaranController;
+use App\Http\Controllers\PelanggaranController;
+use App\Http\Controllers\SanksiController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\TataTertibController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -71,9 +74,23 @@ Route::controller(KelasController::class)->group(function () {
     Route::post('/insert_kelas', 'insertKelas')->name('insertKelas');
     Route::put('/kelas/update/{id}', 'updateKelas')->name('update_kelas');
 });
+
 Route::controller(DetailKelasController::class)->group(function () {
+<<<<<<< HEAD
     Route::get('detail/kelas/{id_kelas}', 'index')->name('detailkelas');
     // menampilkan siswa berdasarkan id kelasnya
     // Route::get('/kelassiswa/{kelas}', 'kelaskatagori')->name('kelaskatagori');
     Route::post('insert/detail', 'insertdetail')->name('insertdetail');
+=======
+    Route::get('/detile_kelas', 'index')->name('detailkelas');
+});
+Route::controller(PelanggaranController::class)->group(function () {
+    Route::get('/pelanggaran', 'index')->name('pelanggaran');
+});
+Route::controller(TataTertibController::class)->group(function () {
+    Route::get('/tataTertib', 'index')->name('tataTertib');
+});
+Route::controller(SanksiController::class)->group(function () {
+    Route::get('/sanksi', 'index')->name('sanksi');
+>>>>>>> 66ab414a83b9d559c8f1548f8ec0d2a8ff1c9850
 });

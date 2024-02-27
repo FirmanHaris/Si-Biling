@@ -9,6 +9,7 @@
     <link rel="icon" href="{{ asset('asset_backend') }}/img/logo/ah.png" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('asset_backend/css/fonts.css') }}">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Fonts and icons -->
     <script src="{{ asset('asset_backend') }}/js/plugin/webfont/webfont.min.js"></script>
     <script>
@@ -544,6 +545,8 @@
             </div>
         </div>
     </div>
+
+
     <!--   Core JS Files   -->
     <script src="{{ asset('asset_backend') }}/js/core/jquery.3.2.1.min.js"></script>
     <script src="{{ asset('asset_backend') }}/js/core/popper.min.js"></script>
@@ -772,7 +775,37 @@
             fillColor: 'rgba(255, 165, 52, .14)'
         });
     </script>
+    <script>
+        let kurikulum = ["k13", "merdeka"];
+        let k13 = ["Nasional", "Kewilayahan", "Peminatan"];
+        let merdeka = ["Pelajaran Umum", "Pelajaran Kejuruan"];
+        let krm = document.getElementById("skurikulum");
+        let mtn = document.getElementById("smuatan");
+        kurikulum.forEach(function addKurikulum(item) {
+            let option = document.createElement("option");
+            option.text = item;
+            option.value = item;
+            krm.appendChild(option);
+        });
+        krm.onchange = function() {
+            mtn.innerHTML = "<option></option>";
+            if (this.value == "k13") {
+                addToMtn(k13);
+            }
+            if (this.value == "merdeka") {
+                addToMtn(merdeka);
+            }
+        }
 
+        function addToMtn(arr) {
+            arr.forEach(function(item) {
+                let option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+                mtn.appendChild(option);
+            });
+        }
+    </script>
 </body>
 
 </html>

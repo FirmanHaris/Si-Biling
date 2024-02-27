@@ -11,7 +11,7 @@ class Pelajaran extends Model
     public $timestamps = true;
     protected $table = 'pelajarans';
     protected $primaryKey = 'id_mapel';
-    protected $fillable = ['id_guru', 'nama_mapel', 'katagori', 'kurikulum'];
+    protected $fillable = ['id_guru', 'nama_mapel', 'kurikulum', 'muatan'];
 
 
     public function guru()
