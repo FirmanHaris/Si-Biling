@@ -25,6 +25,6 @@ class Siswa extends Model
 
     public function detail_kelas()
     {
-        return $this->belongsTo(Detail_kelas::class, 'id_detail');
+        return $this->hasMany(Detail_kelas::class, 'id_detail');
     }
 }

@@ -40,51 +40,48 @@
                                     <span class="sub-item">Mata Pelajaran</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('semester') }}"
+                                    class="{{ request()->is('semester') ? 'active' : '' }}">
+                                    <span class="sub-item">Semester</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">Bimbingan Konseling</h4>
-                </li>
-                {{-- <li class="nav-item {{ request()->is('datasiswa') ? 'active' : '' }}">
-                    <a href="{{ route('datasiswa') }}">
-                        <i class="fas fa-database"></i>
-                        <p>Data Siswa</p>
-                    </a>
-                </li> --}}
                 <li class="nav-item">
-                    <a href="">
+                    <a data-toggle="collapse" href="#sidebarBk">
                         <i class="fas fa-layer-group"></i>
-                        <p>Kegiatan Siswa</p>
+                        <p>Bimbingan Konseling</p>
+                        <span class="caret"></span>
                     </a>
+                    <div class="collapse" id="sidebarBk">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="" class="">
+                                    <span class="sub-item">Absensi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('pelanggaran') }}"
+                                    class="{{ request()->is('pelanggaran') ? 'active' : '' }}">
+                                    <span class="sub-item">Pelanggaran</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('tataTertib') }}"
+                                    class="{{ request()->is('tataTertib') ? 'active' : '' }}">
+                                    <span class="sub-item">Tata Tertib</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="sub-item">Prestasi</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a href="">
-                        <i class="fas fa-graduation-cap"></i>
-                        <p>Prestasi</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a href="">
-                        <i class="fa fa-calendar"></i>
-                        <p>Absensi</p>
-                    </a>
-                </li>
-                <li class="nav-item  { request()->is('pelanggaran') ? 'active' : '' }}">
-                    <a href="{{ route('pelanggaran') }}">
-                        <i class="fas fa-th-list"></i>
-                        <p>Kasus / Pelanggaran</p>
-                    </a>
-                </li>
-                {{-- <li class="nav-item {{ request()->is('mapel') ? 'active' : '' }} ">
-                    <a href="{{ route('mapel') }}">
-                        <i class="fas fa-th-list"></i>
-                        <p>Mata Pelajaran</p>
-                    </a>
-                </li> --}}
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
@@ -103,30 +100,6 @@
                         <p>E-Ijazah</p>
                     </a>
                 </li>
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">Guru</h4>
-                </li>
-                {{-- <li class="nav-item {{ request()->is('dataguru') ? 'active' : '' }}">
-                    <a href="{{ route('dataguru') }}">
-                        <i class="fas fa-database"></i>
-                        <p>Data Guru</p>
-                    </a>
-                </li> --}}
-                <li class="nav-item {{ request()->is('semester') ? 'active' : '' }}">
-                    <a href="{{ route('semester') }}">
-                        <i class="fas fa-database"></i>
-                        <p>Semester</p>
-                    </a>
-                </li>
-                {{-- <li class="nav-item {{ request()->is('kelas') ? 'active' : '' }}">
-                    <a href="{{ route('datakelas') }}">
-                        <i class="fas fa-database"></i>
-                        <p>Kelas</p>
-                    </a>
-                </li> --}}
             </ul>
         </div>
     </div>

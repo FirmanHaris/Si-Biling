@@ -51,7 +51,8 @@ class SiswaController extends Controller
             // dd($data);
             return redirect('datasiswa')->with(['msg' => 'Data Berhasil Ditambah', 'type' => 'success']);
         } catch (\Exception $e) {
-            return redirect('datasiswa')->with(['msg' => 'Data  Gagal Ditambah', 'type' => 'error']);
+            // return redirect('datasiswa')->with(['msg' => 'Data  Gagal Ditambah', 'type' => 'error']);
+            return $e;
         }
     }
     public function editsiswa(Request $request, $id)

@@ -19,7 +19,6 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalAdd">
                                 Add
                             </button>
-                            <a href="{{ route('tataTertib') }}" class="btn btn-secondary ">Tata Tertib</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table">

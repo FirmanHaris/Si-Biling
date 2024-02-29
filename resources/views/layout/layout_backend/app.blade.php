@@ -8,8 +8,10 @@
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="{{ asset('asset_backend') }}/img/logo/ah.png" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('asset_backend/css/fonts.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap4.css">
     <!-- Fonts and icons -->
     <script src="{{ asset('asset_backend') }}/js/plugin/webfont/webfont.min.js"></script>
     <script>
@@ -30,11 +32,12 @@
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="{{ asset('asset_backend') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('asset_backend') }}/css/atlantis.css">
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="{{ asset('asset_backend') }}/css/demo.css">
+    <link rel="stylesheet" href="{{ asset('select2/css/bootstrap-multiselect.css') }}" type="text/css">
+    <script src="{{ asset('select2/js/bootstrap-multiselect.js') }}" type="text/javascript"></script>
 </head>
 
 <body>
@@ -126,7 +129,8 @@
                                         <span class="category-title mt-0">Contacts</span>
                                         <div class="avatar-group">
                                             <div class="avatar">
-                                                <img src="{{ asset('asset_backend') }}/img/jm_denis.jpg" alt="..."
+                                                <img src="{{ asset('asset_backend') }}/img/jm_denis.jpg"
+                                                    alt="..."
                                                     class="avatar-img rounded-circle border border-white">
                                             </div>
                                             <div class="avatar">
@@ -548,19 +552,7 @@
 
 
     <!--   Core JS Files   -->
-    <script src="{{ asset('asset_backend') }}/js/core/jquery.3.2.1.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#jurusan').select2();
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('#namasiswa').select2();
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
     <script src="{{ asset('asset_backend') }}/js/core/popper.min.js"></script>
     <script src="{{ asset('asset_backend') }}/js/core/bootstrap.min.js"></script>
@@ -585,8 +577,10 @@
     <script src="{{ asset('asset_backend') }}/js/plugin/chart-circle/circles.min.js"></script>
 
     <!-- Datatables -->
-    <script src="{{ asset('asset_backend') }}/js/plugin/datatables/datatables.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.bootstrap4.js"></script>
+    <script src="{{ asset('asset_backend/js/datatables.init.js') }}"></script>
     <!-- Bootstrap Notify -->
     <script src="{{ asset('asset_backend') }}/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
 
@@ -693,7 +687,16 @@
     <!-- Atlantis JS -->
     <script src="{{ asset('asset_backend') }}/js/atlantis.min.js"></script>
     <script src="asset_backend/js/alert-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#demo').multiselect({
+                includeSelectAllOption: true,
+                selectAllText: 'pilih semua',
 
+            });
+        });
+    </script>
     <script>
         Circles.create({
             id: 'circles-1',
@@ -819,6 +822,7 @@
             });
         }
     </script>
+
     @yield('script')
 </body>
 

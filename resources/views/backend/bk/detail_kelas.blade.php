@@ -5,8 +5,7 @@
             <div class="page-inner py-5">
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
-                        <h2 class="text-white pb-2 fw-bold ">Detail Kelas {{ $detail[0]->kelas->nama_kelas }}
-                            <h5>WALI KELAS {{ $detail[0]->kelas->guru->nama }}</h5>
+                        <h2 class="text-white pb-2 fw-bold ">{{ $kelas->nama_kelas }}
                         </h2>
                     </div>
                 </div>
@@ -26,37 +25,45 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nis</th>
+                                        <th>Nisn</th>
                                         <th>Nama Siswa</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Alamat</th>
                                         <th>#Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($detail as $dk)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $dk->siswa->nis }}</td>
-                                            <td>{{ $dk->siswa->nama }}</td>
-                                            <td>
-                                                <div class="form-button-action">
-                                                    <button type="button" data-toggle="modal" data-target="#ModalEdit"
-                                                        title="" class="btn btn-link btn-primary btn-lg"
-                                                        data-original-title="Edit ">
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                    <form action="" method="POST">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="button" data-toggle="" title="" data-id=""
-                                                            data-nama="" class="btn btn-link btn-danger deletealertsiswa"
-                                                            data-original-title="Hapus">
-                                                            <i class="fa fa-times"></i>
+                                    @if (!empty($kelas->detail_kelas))
+                                        @forelse ($kelas->detail_kelas as $murid)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $murid->siswa->nisn }}</td>
+                                                <td>{{ $murid->siswa->nama }}</td>
+                                                <td>{{ $murid->siswa->gender }}</td>
+                                                <td>{{ $murid->siswa->alamat }}</td>
+                                                <td>
+                                                    <div class="form-button-action">
+                                                        <button type="button" data-toggle="modal" data-target="#ModalEdit"
+                                                            title="" class="btn btn-link btn-primary btn-lg"
+                                                            data-original-title="Edit ">
+                                                            <i class="fa fa-edit"></i>
                                                         </button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                                        <form action="" method="POST">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="button" data-toggle="" title=""
+                                                                data-id="" data-nama=""
+                                                                class="btn btn-link btn-danger deletealertsiswa"
+                                                                data-original-title="Hapus">
+                                                                <i class="fa fa-times"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                        @endforelse
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -67,9 +74,9 @@
 
         {{-- modal Add Siswa --}}
 
-        <div class="modal fade bd-example-modal-lg modal" id="ModalAdd" role="dialog"
-            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+        <div class="modal fade bd-example-modal-lg" id="ModalAdd" role="dialog" aria-labelledby="exampleModalLongTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">Data
@@ -78,41 +85,55 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ route('insertdetail') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="nama_mapel">
-                                <h5>Tahun ajaran</h5>
-                            </label>
-                            <select style="width: 30em" class="custom-select" id="jurusan" data-width="100%"
-                                name="jurusan">
-                                <option selected> --pilih jurusan--
-                                </option>
-                                {{-- <input type="checkbox" id="select-all">seelec all --}}
-                                @foreach ($siswa as $sis)
-                                    <option type="checkbox" value="{{ $sis->id_siswa }}">
-                                        {{ $sis->jurusan }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <label class="mt-3" for="nama_mapel">
-                                <h5>Nama Siswa</h5>
-                            </label>
-                            <select class="custom-select" id="namasiswa" data-width="100%" name="jurusan">
-                                <option selected> --pilih siswa--
-                                </option>
-                                @foreach ($siswa as $sis)
-                                    <option value="{{ $sis->id_siswa }}">
-                                        nama-> {{ $sis->nama }} jurusan-> {{ $sis->jurusan }}
-                                    </option>
-                                @endforeach
-                            </select>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="">Nama Siswa</label>
+                                <input class="form-control" id="nama"></input>
+                            </div>
+                            <div class="col-6">
+                                <label for="">Jurusan</label>
+                                <select class="form-control" id="jurusan">
+                                    <option selected disabled hidden>Jurusan</option>
+                                    <option value="rpl">RPL</option>
+                                    <option value="perhotelan">Perhotelan</option>
+                                </select>
+                            </div>
+                        </div>
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Tambah Siswa</button>
-                        </div>
+                        <form action="{{ route('insertdetail') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id_kelas" value="{{ $kelas->id_kelas }}">
+                            <table class="table" id="tableSiswa" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>NISN</th>
+                                        <th>Nama</th>
+                                        <th>Jurusan</th>
+                                        <th>#Pilih</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($siswa as $s)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $s->nisn }}</td>
+                                            <td>{{ $s->nama }}</td>
+                                            <td>{{ $s->jurusan }}</td>
+                                            <td>
+                                                <input type="checkbox" name="id_siswa[]" value="{{ $s->id_siswa }}">
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Tambah Siswa</button>
+                    </div>
                     </form>
                 </div>
             </div>
@@ -120,8 +141,3 @@
         {{-- end modal siswa --}}
     </div>
 @endsection
-<script>
-    $(.ModalAdd).ready(function() {
-        $('#jurusan').select2();
-    });
-</script>

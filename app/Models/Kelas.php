@@ -25,6 +25,6 @@ class Kelas extends Model
     }
     public function detail_kelas()
     {
-        return $this->hasOne(Detail_kelas::class, 'id_detail', 'id_detail');
+        return $this->hasMany(Detail_kelas::class, 'id_kelas', 'id_kelas');
     }
 }

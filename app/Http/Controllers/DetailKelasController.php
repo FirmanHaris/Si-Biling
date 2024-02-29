@@ -2,62 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Detail_kelas;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DetailKelasController extends Controller
 {
     public function index($id_kelas)
     {
-
-        $siswa = Siswa::with('Detail_kelas')->get();
-        $kelas = Kelas::with('Detail_Kelas');
-        $detail = Detail_kelas::where('id_kelas', $id_kelas)->with('siswa')->get();
-        return view('backend.bk.detail_kelas', compact('siswa', 'detail', 'kelas'));
+        $siswa  = Siswa::all();
+        $kelas = Kelas::with('detail_kelas.siswa')->find($id_kelas);
+        // dd($kelas);
+        return view('backend.bk.detail_kelas', compact('kelas', 'siswa'));
     }
 
-    // menampilkan siswa berdasarkan id kelas
-    // public function kelaskatagori($kelas)
-    // {
-
-    //     $siswa = Siswa::get();
-    //     $kelas = Kelas::get();
-    //     $detail = Detail_kelas::where('id_kelas', $kelas)->with('siswa')->get();
-    //     return view('backend.bk.detail_kelas', compact('kelasall', 'siswa', 'kelas'));
-    // }
 
 
     public function insertdetail(Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required|array'
+            'id_siswa' => 'required|array'
         ]);
+        // dd($request->all());
 
         try {
 
-            $request->validate([
-                'nama' => 'required|array',
-            ]);
-
-            // Dapatkan data siswa yang dipilih dari formulir
-            $siswaTerpilih = $request->input('nama');
-            // Lakukan multiple insert
-            $siswaData = [];
-
-            foreach ($siswaTerpilih as $siswa) {
-                $siswaData[] = [
-                    'nama' => $siswa,
-                    // tambahkan kolom lain sesuai kebutuhan
-                ];
+            if (!empty($request->input('id_siswa'))) {
+                $insert = [];
+                foreach ($request->input('id_siswa') as $key => $value) {
+                    array_push($insert, ['id_kelas' => $request->id_kelas, 'id_siswa' => $value]);
+                }
+                DB::table('detail_kelas')->insert($insert);
+            } else {
             }
-
-            Siswa::insert($siswaData);
-
-            return redirect('detailkelas')->with(['msg' => 'Data Berhasil Ditambah', 'type' => 'success']);
+            return back()->with(['msg' => 'Data Berhasil Ditambah', 'type' => 'success']);
         } catch (\Exception $e) {
-            return redirect('dataguru')->with(['msg' => $e . 'Data Gagal Ditambah ', 'type' => 'error']);
+            return $e;
         }
     }
 }
