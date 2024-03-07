@@ -29,12 +29,7 @@
                                     <span class="sub-item">Data Guru</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('datakelas') }}"
-                                    class="{{ request()->is('datakelas') ? 'active' : '' }}">
-                                    <span class="sub-item">Data Kelas</span>
-                                </a>
-                            </li>
+
                             <li>
                                 <a href="{{ route('mapel') }}" class="{{ request()->is('mapel') ? 'active' : '' }}">
                                     <span class="sub-item">Mata Pelajaran</span>
@@ -76,7 +71,7 @@
                             </li>
                             <li>
                                 <a href="">
-                                    <span class="sub-item">Prestasi</span>
+                                    <span class="sub-item">Prestasi Siswa</span>
                                 </a>
                             </li>
                         </ul>
@@ -87,6 +82,28 @@
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
                     <h4 class="text-section">Bank Nilai Siswa</h4>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#rombel">
+                        <i class="fas fa-layer-group"></i>
+                        <p>Rombongan Belajar </p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="rombel">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ route('datakelas') }}"
+                                    class="{{ request()->is('datakelas') ? 'active' : '' }}">
+                                    <span class="sub-item">Kelas</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('rombel') }}" class="{{ request()->is('rombel') ? 'active' : '' }}">
+                                    <span class="sub-item">Kelas Pelajaran</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item  ">
                     <a href="">

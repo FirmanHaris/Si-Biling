@@ -27,4 +27,8 @@ class Siswa extends Model
     {
         return $this->hasMany(Detail_kelas::class, 'id_detail');
     }
+    public function nilai()
+    {
+        return $this->hasMany(Nilai::class, 'id_nilai');
+    }
 }

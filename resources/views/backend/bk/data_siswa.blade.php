@@ -7,10 +7,6 @@
                     <div>
                         <h2 class="text-white pb-2 fw-bold ">Data Siswa</h2>
                     </div>
-                    {{-- <div class="ml-md-auto py-2 py-md-0">
-                        <a href="#" class="btn btn-white btn-border btn-round mr-2">Manage</a>
-                        <a href="#" class="btn btn-secondary btn-round">Add Customer</a>
-                    </div> --}}
 
                 </div>
             </div>
@@ -23,7 +19,8 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalAdd">
                                 Add
                             </button>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Import">
+                            <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                                data-target="#Import">
                                 Import
                             </button>
                         </div>

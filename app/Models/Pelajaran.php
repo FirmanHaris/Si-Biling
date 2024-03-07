@@ -18,4 +18,8 @@ class Pelajaran extends Model
     {
         return $this->hasOne(Guru::class, 'id_guru', 'id_guru');
     }
+    public function kelasPelajaran()
+    {
+        return $this->belongsTo(KelasPelajaran::class, 'id_kelasPelajaran', 'id_kelasPelajaran');
+    }
 }

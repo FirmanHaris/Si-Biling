@@ -5,7 +5,7 @@
             <div class="page-inner py-5">
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
-                        <h2 class="text-white pb-2 fw-bold ">Kelas</h2>
+                        <h2 class="text-white pb-2 fw-bold ">Nilai</h2>
                     </div>
                 </div>
             </div>
@@ -24,15 +24,16 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Wali Kelas</th>
-                                        <th>Nama Kelas</th>
+                                        <th>Nama Siswa</th>
+                                        <th>Kelas Pelajaran</th>
+                                        <th> Nilai UTS</th>
+                                        <th>Nilai UAS</th>
                                         <th>Semester</th>
-                                        <th>Ruangan</th>
                                         <th>#Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($kelas as $kls)
+                                    {{-- @foreach ($kelas as $kls)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $kls->guru->nama }}</td>
@@ -53,12 +54,28 @@
 
                                             </td>
                                         </tr>
+                                    @endforeach --}}
+                                    @foreach ($data as $d)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $d->siswa->nama }}</td>
+                                            <td>{{ $d->kelasPelajaran->id_mapel }}</td>
+                                            <td>{{ $d->tugas }}</td>
+                                            <td>{{ $d->uts }}</td>
+                                            <td>{{ $d->uas }}</td>
+                                            <td>{{ $d->semester->semester }}</td>
+                                            <td>
+                                                <div class="col-3">
+                                                    <input class="form-control" type="text">
+                                                </div>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
                         {{-- modal Add --}}
-                        <div class="modal fade " id="ModalAdd" tabindex="-1" role="dialog"
+                        {{-- <div class="modal fade " id="ModalAdd" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -134,11 +151,11 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         {{-- end modal Add --}}
-                        @foreach ($kelas as $kl)
-                            {{-- modal update --}}
-                            <div class="modal fade " id="ModalEdit{{ $kl->id_kelas }}" tabindex="-1" role="dialog"
+                        {{-- @foreach ($kelas as $kl) --}}
+                        {{-- modal update --}}
+                        {{-- <div class="modal fade " id="ModalEdit{{ $kl->id_kelas }}" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -218,9 +235,9 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
-                            {{-- endmodal update --}}
-                        @endforeach
+                            </div> --}}
+                        {{-- endmodal update --}}
+                        {{-- @endforeach --}}
                     </div>
                 </div>
             </div>

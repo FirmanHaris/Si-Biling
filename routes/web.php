@@ -4,7 +4,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DetailKelasController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\KelasPelajaranController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PelajaranController;
 use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\SanksiController;
@@ -92,3 +94,10 @@ Route::controller(TataTertibController::class)->group(function () {
 Route::controller(SanksiController::class)->group(function () {
     Route::get('/sanksi', 'index')->name('sanksi');
 });
+Route::controller(KelasPelajaranController::class)->group(function () {
+    Route::get('/rombel', 'index')->name('rombel');
+    Route::get('/getGuru/{id}', 'getGuru');
+    Route::post('/insertRombel', 'tambahK_pelajaran')->name('insertRombel');
+    Route::put('/rombel/update/{$id}', 'update')->name('updateRombel');
+});
+Route::get('/nilai/{$id}', [NilaiController::class, 'index'])->name('nilai');
