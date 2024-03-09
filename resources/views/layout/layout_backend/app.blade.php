@@ -38,6 +38,8 @@
     <link rel="stylesheet" href="{{ asset('asset_backend') }}/css/demo.css">
     <link rel="stylesheet" href="{{ asset('select2/css/bootstrap-multiselect.css') }}" type="text/css">
     <script src="{{ asset('select2/js/bootstrap-multiselect.js') }}" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </head>
 
 <body>

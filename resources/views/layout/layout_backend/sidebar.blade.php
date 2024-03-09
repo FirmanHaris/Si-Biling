@@ -77,12 +77,6 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">Bank Nilai Siswa</h4>
-                </li>
                 <li class="nav-item">
                     <a data-toggle="collapse" href="#rombel">
                         <i class="fas fa-layer-group"></i>
@@ -114,7 +108,7 @@
                 <li class="nav-item  ">
                     <a href="">
                         <i class="fas fa-th-list"></i>
-                        <p>E-Ijazah</p>
+                        <p>E-Raport</p>
                     </a>
                 </li>
             </ul>

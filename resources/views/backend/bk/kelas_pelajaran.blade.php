@@ -40,7 +40,7 @@
                                             <td>
                                                 <a href="{{ route('nilai', $dt->id_kelasPelajaran) }}"
                                                     class="btn btn-outline-primary" data-original-title="lihat">
-                                                    <i class="far fa-eye"></i><span>Lihat</span>
+                                                    <i class="far fa-eye"></i>&nbsp;<span>Lihat</span>
                                                     <a>
                                             </td>
                                         </tr>

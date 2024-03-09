@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DetailKelasController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
@@ -101,3 +102,5 @@ Route::controller(KelasPelajaranController::class)->group(function () {
     Route::put('/rombel/update/{$id}', 'update')->name('updateRombel');
 });
 Route::get('/nilai/{$id}', [NilaiController::class, 'index'])->name('nilai');
+Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+Route::post('/berita/insert', [BeritaController::class, 'insertBerita'])->name('insertberita');
