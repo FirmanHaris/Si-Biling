@@ -6,6 +6,7 @@ use App\Models\Guru;
 use App\Models\Kelas;
 use App\Models\Semester;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KelasController extends Controller
 {
@@ -13,7 +14,11 @@ class KelasController extends Controller
     {
         $guru = Guru::all();
         $semester = Semester::all();
-        $kelas = Kelas::with('guru', 'semester')->get();
+
+        $sesi = session()->get('id_semester');
+
+        $kelas = Kelas::with('guru', 'semester')->where('id_semester', $sesi)->get();
+        // dd($kelas);
         return view('backend.bk.kelas', compact('guru', 'semester', 'kelas'));
     }
     public function insertKelas(Request $request)

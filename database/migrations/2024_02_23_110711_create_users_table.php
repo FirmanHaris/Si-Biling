@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_semester')->nullable();
+            $table->foreign('id_semester')->references('id_semester')->on('semesters')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('username');
             $table->enum('role', ['admin', 'siswa', 'guru', 'kepsek', 'wakasek'])->default('siswa');
             $table->string('password');

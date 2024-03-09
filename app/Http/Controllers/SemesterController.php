@@ -16,11 +16,13 @@ class SemesterController extends Controller
     {
         // dd($request->all());
         $this->validate($request, [
+            'tahun_ajaran' => 'required',
             'nama_semester' => 'required',
             'status' => 'required'
         ]);
         try {
             $data = new Semester();
+            $data->tahun_ajaran = $request->tahun_ajaran;
             $data->nama_semester = $request->nama_semester;
             $data->status = $request->status;
             $data->save();
@@ -33,11 +35,13 @@ class SemesterController extends Controller
     public function updateSemester(Request $request, $id)
     {
         $this->validate($request, [
+            'tahun_ajaran' => 'required',
             'nama_semester' => 'required',
             'status' => 'required'
         ]);
         try {
             $data = Semester::find($id);
+            $data->tahun_ajaran = $request->tahun_ajaran;
             $data->nama_semester = $request->nama_semester;
             $data->status = $request->status;
             $data->save();

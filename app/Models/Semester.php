@@ -18,4 +18,8 @@ class Semester extends Model
     {
         return $this->belongsTo(Nilai::class, 'id_nilai');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id', 'id');
+    }
 }
