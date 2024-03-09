@@ -41,6 +41,12 @@
                                     <span class="sub-item">Semester</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('datauser') }}"
+                                    class="{{ request()->is('datauser') ? 'active' : '' }}">
+                                    <span class="sub-item">Data User</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

@@ -88,7 +88,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-
                             <!-- Modal Import -->
                             <div class="modal fade" id="Import" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">

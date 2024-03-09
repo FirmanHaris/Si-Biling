@@ -24,6 +24,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Tahun Ajaran</th>
                                         <th>Semester</th>
                                         <th>Status</th>
                                         <th>#Action</th>
@@ -33,6 +34,7 @@
                                     @foreach ($semester as $smt)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $smt->tahun_ajaran }}</td>
                                             <td>{{ $smt->nama_semester }}</td>
                                             <td>{{ $smt->status }}</td>
                                             <td>
@@ -76,6 +78,17 @@
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-lg">
+                                                    <div class="form-group">
+                                                        <label for="tahun_ajaran">tahun ajaran</label>
+                                                        <input type="text"
+                                                            class="form-control @error('tahun_ajaran')  is-invalid
+                                                            @enderror"
+                                                            id="tahun_ajaran" name="tahun_ajaran"
+                                                            placeholder="tahun_ajaran">
+                                                        @error('tahun_ajaran')
+                                                            <span class="invalid-feedback">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
                                                     <div class="form-group">
                                                         <label for="nama_semester">semester</label>
                                                         <input type="text"

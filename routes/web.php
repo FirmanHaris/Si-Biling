@@ -45,6 +45,7 @@ Route::get('/profile', function () {
 })->name('profile');
 
 Route::controller(AuthController::class)->group(function () {
+    Route::get('DataUser', 'index')->name('datauser');
     Route::get('/login', 'login')->name('login');
     Route::post('prosesLogin', 'proseslogin')->name('proseslogin');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

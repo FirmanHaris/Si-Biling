@@ -48,4 +48,6 @@
             </li>
         </ul>
     </div>
+    <h3 class="ms-2 white text-white">{{ Auth::User()->username }}</h3>
+
 </nav>

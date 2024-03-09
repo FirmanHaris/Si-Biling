@@ -49,7 +49,7 @@
                                                     <a href="{{ route('detailkelas', $kls->id_kelas) }}"
                                                         class="btn btn-link btn-primary btn-lg" data-original-title="Edit ">
                                                         <i class="far fa-eye"></i>
-                                                    </a>
+                                                        <a>
 
                                             </td>
                                         </tr>
@@ -135,6 +135,8 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- end modal Add --}}
+
                         {{-- end modal Add --}}
                         @foreach ($kelas as $kl)
                             {{-- modal update --}}
